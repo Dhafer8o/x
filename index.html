@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X | الرئيسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+
+        <!-- 1. القائمة الجانبية -->
+        <aside class="sidebar">
+            <a href="#" class="logo" aria-label="X">
+                <img src="images/image.png" alt="X">
+            </a>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active"><i class="fas fa-house"></i> <span>الرئيسية</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-hashtag"></i> <span>استكشف</span></a>
+                <a href="#" class="nav-item"><i class="far fa-bell"></i> <span>التنبيهات</span></a>
+                <a href="#" class="nav-item"><i class="far fa-envelope"></i> <span>الرسائل</span></a>
+                <a href="#" class="nav-item"><i class="far fa-bookmark"></i> <span>العلامات المرجعية</span></a>
+                <a href="#" class="nav-item"><i class="far fa-user"></i> <span>الملف الشخصي</span></a>
+            </nav>
+
+            <button type="button" class="tweet-btn" id="sidebar-tweet-btn" aria-label="تغريد">
+                <i class="fas fa-feather"></i>
+                <span>تغريد</span>
+            </button>
+
+            <div class="main-account">
+                <img class="avatar" src="images/avatar.jpg" alt="صورة Dhafer">
+                <div class="account-details">
+                    <h4>Dhafer</h4>
+                    <span class="username">@Dhafer</span>
+                </div>
+                <i class="fas fa-ellipsis"></i>
+            </div>
+        </aside>
+
+        <!-- 2. القسم الأوسط -->
+        <main class="feed">
+            <header class="feed-header">
+                <h2>الرئيسية</h2>
+            </header>
+
+            <!-- صندوق كتابة تغريدة جديدة -->
+            <form class="tweet-box" id="tweet-form">
+                <img class="avatar" src="images/avatar.jpg" alt="">
+                <div class="tweet-input-area">
+                    <textarea id="tweet-input" placeholder="ماذا يحدث؟" rows="2" maxlength="280" aria-label="اكتب تغريدة"></textarea>
+                    <div class="tweet-box-actions">
+                        <div class="icons" aria-hidden="true">
+                            <i class="far fa-image"></i>
+                            <i class="fas fa-list-ul"></i>
+                            <i class="far fa-face-smile"></i>
+                        </div>
+                        <div class="post-controls">
+                            <span class="char-count" id="char-count" aria-live="polite">280</span>
+                            <button type="submit" class="submit-tweet-btn" id="submit-tweet" disabled>نشر</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- التغريدات (يتم إنشاؤها من script.js) -->
+            <div class="tweets-timeline" id="timeline"></div>
+            <p class="empty-state" id="empty-state" hidden>لا توجد تغريدات مطابقة للبحث.</p>
+        </main>
+
+        <!-- 3. البحث والتريندات -->
+        <aside class="widgets">
+            <div class="search-bar">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="search" id="search-input" placeholder="ابحث في التغريدات" aria-label="ابحث في التغريدات">
+            </div>
+
+            <div class="widget-box">
+                <h3>ماذا يحدث</h3>
+                <button type="button" class="trend-item" data-tag="#برمجة_المواقع">
+                    <span class="trend-category">الوسوم المتداولة في السعودية</span>
+                    <span class="trend-name" dir="auto">#برمجة_المواقع</span>
+                    <span class="trend-count">10.5K تغريدة</span>
+                </button>
+                <button type="button" class="trend-item" data-tag="#UX">
+                    <span class="trend-category">تصميم · متداول</span>
+                    <span class="trend-name" dir="auto">#UX</span>
+                    <span class="trend-count">4,210 تغريدة</span>
+                </button>
+                <button type="button" class="trend-item" data-tag="#جافاسكربت">
+                    <span class="trend-category">تقنية · متداول</span>
+                    <span class="trend-name" dir="auto">#جافاسكربت</span>
+                    <span class="trend-count">2,875 تغريدة</span>
+                </button>
+            </div>
+
+            <div class="widget-box">
+                <h3>من تتابع</h3>
+                <div class="follow-item">
+                    <span class="avatar avatar-letter" style="background-color: #7856ff;">س</span>
+                    <div class="account-details">
+                        <h4>سارة</h4>
+                        <span class="username">@sara_dev</span>
+                    </div>
+                    <button type="button" class="follow-btn">متابعة</button>
+                </div>
+                <div class="follow-item">
+                    <span class="avatar avatar-letter" style="background-color: #f91880;">ن</span>
+                    <div class="account-details">
+                        <h4>نورة</h4>
+                        <span class="username">@noura_ux</span>
+                    </div>
+                    <button type="button" class="follow-btn">متابعة</button>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

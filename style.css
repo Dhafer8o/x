@@ -1,0 +1,628 @@
+/* ===== الألوان العامة ===== */
+:root {
+    --bg: #000000;
+    --text: #e7e9ea;
+    --muted: #71767b;
+    --border: #2f3336;
+    --hover: #181818;
+    --surface: #16181c;
+    --input-bg: #202327;
+    --blue: #1d9bf0;
+    --blue-hover: #1a8cd8;
+    --pink: #f91880;
+    --green: #00ba7c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+button {
+    font-family: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+/* ===== الحاوية الرئيسية: ثلاثة أعمدة ===== */
+.main-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1265px;
+    margin: 0 auto;
+}
+
+/* ===== الصور الرمزية ===== */
+.avatar {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* ===== 1. القائمة الجانبية ===== */
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 275px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px 20px;
+    border-inline-end: 1px solid var(--border);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    transition: background-color 0.2s;
+}
+
+.logo:hover {
+    background-color: var(--hover);
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: fit-content;
+    padding: 12px 15px;
+    border-radius: 30px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 19px;
+    transition: background-color 0.2s;
+}
+
+.nav-item i {
+    width: 26px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.nav-item:hover {
+    background-color: var(--hover);
+}
+
+.nav-item.active {
+    font-weight: 700;
+    color: #fff;
+}
+
+.tweet-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 90%;
+    margin-top: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--blue);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* أيقونة الريشة تظهر فقط في الشاشات الصغيرة */
+.tweet-btn i {
+    display: none;
+}
+
+.tweet-btn:hover {
+    background-color: var(--blue-hover);
+}
+
+.main-account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding: 12px;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.main-account:hover {
+    background-color: var(--hover);
+}
+
+.main-account > i {
+    margin-inline-start: auto;
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.account-details h4 {
+    font-size: 15px;
+    color: #fff;
+}
+
+.account-details .username {
+    font-size: 14px;
+    color: var(--muted);
+    direction: ltr;
+    text-align: end;
+}
+
+/* ===== 2. القسم الأوسط ===== */
+.feed {
+    width: 600px;
+    min-width: 0;
+    min-height: 100vh;
+    border-inline-end: 1px solid var(--border);
+}
+
+.feed-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.feed-header h2 {
+    font-size: 20px;
+}
+
+/* صندوق كتابة التغريدة */
+.tweet-box {
+    display: flex;
+    gap: 12px;
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.tweet-input-area {
+    flex: 1;
+    min-width: 0;
+}
+
+.tweet-input-area textarea {
+    width: 100%;
+    min-height: 56px;
+    padding-top: 8px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    resize: none;
+}
+
+.tweet-input-area textarea::placeholder {
+    color: var(--muted);
+}
+
+.tweet-box-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.tweet-box-actions .icons {
+    display: flex;
+    gap: 16px;
+    color: var(--blue);
+    font-size: 17px;
+}
+
+.post-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.char-count {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.char-count.warning {
+    color: #ffd400;
+}
+
+.char-count.danger {
+    color: #f4212e;
+}
+
+.submit-tweet-btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--blue);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.submit-tweet-btn:hover:not(:disabled) {
+    background-color: var(--blue-hover);
+}
+
+.submit-tweet-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* التغريدات */
+.tweet {
+    display: flex;
+    gap: 12px;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.15s;
+}
+
+.tweet:hover {
+    background-color: #080808;
+}
+
+.tweet.new {
+    animation: slide-in 0.35s ease;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+.tweet-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+}
+
+.tweet-header .name {
+    font-weight: 700;
+    color: #fff;
+}
+
+.tweet-header .meta {
+    color: var(--muted);
+}
+
+.delete-btn {
+    margin-inline-start: auto;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: rgba(244, 33, 46, 0.1);
+    color: #f4212e;
+}
+
+.tweet-text {
+    margin-top: 4px;
+    font-size: 15px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.hashtag {
+    color: var(--blue);
+    cursor: pointer;
+}
+
+.hashtag:hover {
+    text-decoration: underline;
+}
+
+.tweet-footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 20px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.action.reply:hover {
+    color: var(--blue);
+    background-color: rgba(29, 155, 240, 0.1);
+}
+
+.action.retweet:hover,
+.action.retweet.active {
+    color: var(--green);
+}
+
+.action.retweet:hover {
+    background-color: rgba(0, 186, 124, 0.1);
+}
+
+.action.like:hover,
+.action.like.active {
+    color: var(--pink);
+}
+
+.action.like:hover {
+    background-color: rgba(249, 24, 128, 0.1);
+}
+
+.action.like.active i {
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    50% {
+        transform: scale(1.35);
+    }
+}
+
+.empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* ===== 3. البحث والتريندات ===== */
+.widgets {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    width: 350px;
+    flex-shrink: 0;
+    padding: 10px 24px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    background-color: var(--input-bg);
+    color: var(--muted);
+    transition: border-color 0.2s;
+}
+
+.search-bar:focus-within {
+    border-color: var(--blue);
+    background-color: var(--bg);
+    color: var(--blue);
+}
+
+.search-bar input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+.widget-box {
+    margin-bottom: 16px;
+    padding: 12px 0;
+    border-radius: 16px;
+    background-color: var(--surface);
+    overflow: hidden;
+}
+
+.widget-box h3 {
+    font-size: 20px;
+    padding: 0 16px 8px;
+}
+
+.trend-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    text-align: start;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.trend-item:hover {
+    background-color: #1d1f23;
+}
+
+.trend-category,
+.trend-count {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.trend-name {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 2px 0;
+}
+
+.follow-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+}
+
+.follow-btn {
+    margin-inline-start: auto;
+    padding: 7px 16px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: #eff3f4;
+    color: #0f1419;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.follow-btn:hover {
+    background-color: #d7dbdc;
+}
+
+.follow-btn.following {
+    background-color: transparent;
+    border-color: #536471;
+    color: var(--text);
+}
+
+.follow-btn.following:hover {
+    border-color: #67070f;
+    background-color: rgba(244, 33, 46, 0.1);
+    color: #f4212e;
+}
+
+/* ===== التجاوب مع الشاشات ===== */
+
+/* إخفاء العمود الأيسر في الشاشات المتوسطة */
+@media (max-width: 1050px) {
+    .widgets {
+        display: none;
+    }
+}
+
+/* القائمة الجانبية تصبح أيقونات فقط */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 88px;
+        align-items: center;
+    }
+
+    .nav-item span,
+    .tweet-btn span,
+    .main-account .account-details,
+    .main-account > i {
+        display: none;
+    }
+
+    .nav-item {
+        padding: 12px;
+    }
+
+    .tweet-btn {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .tweet-btn i {
+        display: inline;
+        font-size: 20px;
+    }
+
+    .main-account {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 68px;
+        padding-inline: 6px;
+    }
+
+    .feed {
+        width: auto;
+        flex: 1;
+    }
+
+    .tweet-input-area textarea {
+        font-size: 17px;
+    }
+
+    .tweet-box-actions .icons {
+        gap: 12px;
+    }
+}
